@@ -67,7 +67,7 @@ deploy:
         key: ${{ secrets.SSH_KEY }}
         script: |
           # Выполняет pull образа с DockerHub
-          sudo docker pull djakomo/infra_actions
+          sudo docker pull djakomo/infra_actions:v2:latest
           #остановка всех контейнеров
           sudo docker stop $(sudo docker ps -a -q)
-          sudo docker run --rm -d -p 5000:5000 djakomo/infra_actions
+          sudo docker run --rm -d -p 5000:5000 djakomo/infra_actions:v2:latest
